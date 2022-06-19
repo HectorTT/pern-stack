@@ -13,14 +13,14 @@ export default function ListTasks() {
     const navegate = useNavigate()
 
     const loadtask = async () => {
-        const res = await fetch('http://localhost:3000/tasks')
+        const res = await fetch('http://localhost:5000/tasks')
         const data = await res.json();
         console.log(data);
         setTasks(data);
     }
 
     const handleDelete = async (id) => {
-        const res = await fetch(`http://localhost:3000/tasks/${id}`,{
+        const res = await fetch(`http://localhost:5000/tasks/${id}`,{
             method: "Delete",
         });
         const data = await res.json();
@@ -30,7 +30,7 @@ export default function ListTasks() {
     }
 
     const handleUpdate = async (id) =>{
-        const res = await fetch(`http://localhost:3000/tasks/${id}`,{
+        const res = await fetch(`http://localhost:5000/tasks/${id}`,{
             method: "PUT",
         });
 

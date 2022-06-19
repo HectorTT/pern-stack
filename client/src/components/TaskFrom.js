@@ -23,7 +23,7 @@ export default function TaskFrom() {
         setLoading(true);
         e.preventDefault();
         if (editing) {
-            const res = await fetch(`http://localhost:3000/tasks/${params.id}`, {
+            const res = await fetch(`http://localhost:5000/tasks/${params.id}`, {
                 method: "PUT",
                 headers: {
                     'Content-Type': 'application/json;charset=utf-8'
@@ -35,7 +35,7 @@ export default function TaskFrom() {
 
         } else {
             /* Mandar datos a la API con fetch  mediante POST*/
-            const res = await fetch('http://localhost:3000/tasks', {
+            const res = await fetch('http://localhost:5000/tasks', {
                 method: "POST",
                 /* Sin esto mandaba los valores null */
                 /* Parece que hacia falta decirle que lo que le enviamos es un JSON */
@@ -56,7 +56,7 @@ export default function TaskFrom() {
         setTask({ ...task, [e.target.name]: e.target.value });
 
     const loadtasks = async (id) => {
-        const res = await fetch(`http://localhost:3000/tasks/${id}`)
+        const res = await fetch(`http://localhost:5000/tasks/${id}`)
         const data = await res.json()
         console.log(data[0].title, data[0].description, data[0].id, data);
         setTask({ title: data[0].title, description: data[0].description });
